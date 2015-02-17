@@ -11,7 +11,7 @@ import UIKit
 class CourtsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var courtNameLabel : UILabel!
-    @IBOutlet weak var thumbnailImageView : UIImageView!
+    @IBOutlet weak var courtBackgroundImageView : UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

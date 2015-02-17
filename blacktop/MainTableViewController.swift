@@ -18,6 +18,11 @@ class MainTableViewController: UITableViewController, UITableViewDataSource {
         
         var item2 = BasketballCourtItem(name: "Rucker Park")
         self.basketballCourts.append(item2)
+        
+        self.basketballCourts =
+            [BasketballCourtItem(name: "Iron Heights"),
+             BasketballCourtItem(name: "Rucker Park"),
+             BasketballCourtItem(name: "Freeway")]
     }
     
     @IBAction func unwindToList(segue: UIStoryboardSegue) {
