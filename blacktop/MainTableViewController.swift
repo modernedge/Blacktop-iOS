@@ -8,27 +8,15 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController, UITableViewDataSource {
+class MainTableViewController: UITableViewController {
 
     var basketballCourts : [BasketballCourtItem]!
     
     func loadInitialValues() {
-        var item1 = BasketballCourtItem(name: "Iron Heights")
-        self.basketballCourts.append(item1)
-        
-        var item2 = BasketballCourtItem(name: "Rucker Park")
-        self.basketballCourts.append(item2)
-        
         self.basketballCourts =
-            [BasketballCourtItem(name: "Iron Heights"),
-             BasketballCourtItem(name: "Rucker Park"),
-             BasketballCourtItem(name: "Freeway")]
-    }
-    
-    @IBAction func unwindToList(segue: UIStoryboardSegue) {
-        //let AddToDoItemViewController = segue.sourceViewController
-    
-        self.tableView.reloadData()
+            [BasketballCourtItem(name: "Iron Heights", location: "Atlanta"),
+                BasketballCourtItem(name: "Rucker Park", location: "Chicago"),
+                BasketballCourtItem(name: "Freeway", location: "New York")]
     }
     
     override func viewDidLoad() {
@@ -42,8 +30,16 @@ class MainTableViewController: UITableViewController, UITableViewDataSource {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        // Empty back button title
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //self.navigationController?.hidesBarsOnSwipe = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -67,6 +63,18 @@ class MainTableViewController: UITableViewController, UITableViewDataSource {
         // Configure the cell...
         cell.courtNameLabel!.text = self.basketballCourts[indexPath.row].name
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        // Create action menu
+        let optionMenu = UIAlertController(title: nil, message: "What do you want?", preferredStyle: .ActionSheet);
+        
+        // Create option
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil);
+        optionMenu.addAction(cancelAction);
+        
+        // Show menu
+        // self.presentViewController(optionMenu, animated: true, completion: nil);
     }
 
     /*
@@ -104,14 +112,24 @@ class MainTableViewController: UITableViewController, UITableViewDataSource {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        if segue.identifier == "pushToCourtDetailsSeque" {
+            if let indexPath = self.tableView.indexPathForSelectedRow() {
+                let destinationController = segue.destinationViewController as CourtDetailsViewController
+                destinationController.basketballCourt = self.basketballCourts[indexPath.row]
+            }
+        }
     }
-    */
+    
+    @IBAction func unwindToList(segue: UIStoryboardSegue) {
+        //let AddToDoItemViewController = segue.sourceViewController
+        
+        self.tableView.reloadData()
+    }
 
 }

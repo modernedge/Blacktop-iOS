@@ -10,9 +10,11 @@ import UIKit
 
 class BasketballCourtItem: NSObject {
     var name : String;
+    var location : String;
     
-    init(name : String) {
+    init(name : String, location : String) {
         self.name = name
+        self.location = location
         super.init()
     }
 }

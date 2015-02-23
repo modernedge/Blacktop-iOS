@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ListItemPrototype" rowHeight="300" id="NBt-kD-Vn4" customClass="CourtsTableViewCell" customModule="blacktop" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListItemPrototype" rowHeight="300" id="NBt-kD-Vn4" customClass="CourtsTableViewCell" customModule="blacktop" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NBt-kD-Vn4" id="Hb2-qz-zqi">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -32,6 +32,7 @@
                                 <connections>
                                     <outlet property="courtBackgroundImageView" destination="2N9-wW-PbG" id="9gu-8P-ccb"/>
                                     <outlet property="courtNameLabel" destination="WCW-l2-eUS" id="CNU-Sk-u0i"/>
+                                    <segue destination="Y8Q-qj-d3U" kind="push" identifier="pushToCourtDetailsSeque" id="Dr6-8u-xuW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -40,22 +41,16 @@
                             <outlet property="delegate" destination="wNZ-Uy-er9" id="j3j-lz-Run"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Blacktop" id="Hax-Gp-VrZ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dbu-uJ-L4g">
-                            <connections>
-                                <segue destination="SkB-JA-icn" kind="modal" id="Nyy-ZH-i7B"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Blacktop" id="Hax-Gp-VrZ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="khm-6m-6rO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="813.86666666666667" y="-423.15999999999997"/>
         </scene>
-        <!--New Court-->
+        <!--Court Details-->
         <scene sceneID="GXt-kj-zN8">
             <objects>
-                <viewController id="Y8Q-qj-d3U" sceneMemberID="viewController">
+                <viewController id="Y8Q-qj-d3U" customClass="CourtDetailsViewController" customModule="blacktop" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="M52-wD-SNn"/>
                         <viewControllerLayoutGuide type="bottom" id="tUj-YL-H90"/>
@@ -63,24 +58,59 @@
                     <view key="view" contentMode="scaleToFill" id="YxP-O9-kfF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UzB-Vf-y84">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="288"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="5g7-TA-EBh">
+                                <rect key="frame" x="0.0" y="288" width="320" height="292"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ListItemPrototype" id="dyL-ai-qZU" customClass="CourtDetailsTableViewCell" customModule="blacktop" customModuleProvider="target">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dyL-ai-qZU" id="pcC-rd-sEZ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Field" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEA-yb-OyU">
+                                                    <rect key="frame" x="15" y="11" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Value" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5VK-cs-nEF">
+                                                    <rect key="frame" x="89" y="11" width="199" height="21"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fieldLabel" destination="uEA-yb-OyU" id="IsW-yp-nrs"/>
+                                            <outlet property="valueLabel" destination="5VK-cs-nEF" id="Pcd-nn-2lT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y8Q-qj-d3U" id="Nfx-Qt-wER"/>
+                                    <outlet property="delegate" destination="Y8Q-qj-d3U" id="H1U-Ra-qhV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Court" id="ycF-dN-fYh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="bSL-sj-zIk">
-                            <connections>
-                                <segue destination="wG3-ye-hty" kind="unwind" unwindAction="unwindToList:" id="VCO-lf-OmV"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Court Details" id="ycF-dN-fYh">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fqc-uO-lf3"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s8o-wG-J90" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="wG3-ye-hty" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1577.5999999999999" y="-426"/>
+            <point key="canvasLocation" x="1577" y="-426"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="efR-be-ODJ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDG-hw-Lyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VmY-qt-s4a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="mostRecent" id="xsl-RZ-g7J"/>
                     <toolbarItems/>
@@ -93,13 +123,13 @@
                         <segue destination="wNZ-Uy-er9" kind="relationship" relationship="rootViewController" id="ndK-2S-tVC"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RDG-hw-Lyk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="405.33333333333331" y="-426"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HIj-dS-sLD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i9A-eg-mUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SkB-JA-icn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JWQ-Rz-wkW">
@@ -111,7 +141,6 @@
                         <segue destination="Y8Q-qj-d3U" kind="relationship" relationship="rootViewController" id="wMV-lY-Wep"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="i9A-eg-mUP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1195.7333333333333" y="-426"/>
         </scene>
@@ -121,4 +150,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dr6-8u-xuW"/>
+    </inferredMetricsTieBreakers>
 </document>
