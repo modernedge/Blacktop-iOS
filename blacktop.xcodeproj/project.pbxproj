@@ -15,6 +15,8 @@
 		0E89933B1A88877800B1C9C3 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E89933A1A88877800B1C9C3 /* MainTableViewController.swift */; };
 		0E89936D1A8890DB00B1C9C3 /* BasketballCourtItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E89936C1A8890DB00B1C9C3 /* BasketballCourtItem.swift */; };
 		0E89936F1A93134800B1C9C3 /* CourtsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E89936E1A93134800B1C9C3 /* CourtsTableViewCell.swift */; };
+		0ED29F071A9AEF2D00796AA2 /* CourtDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED29F061A9AEF2D00796AA2 /* CourtDetailsViewController.swift */; };
+		0ED29F091A9AFD2E00796AA2 /* CourtDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ED29F081A9AFD2E00796AA2 /* CourtDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		0E89933A1A88877800B1C9C3 /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		0E89936C1A8890DB00B1C9C3 /* BasketballCourtItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasketballCourtItem.swift; sourceTree = "<group>"; };
 		0E89936E1A93134800B1C9C3 /* CourtsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourtsTableViewCell.swift; sourceTree = "<group>"; };
+		0ED29F061A9AEF2D00796AA2 /* CourtDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourtDetailsViewController.swift; sourceTree = "<group>"; };
+		0ED29F081A9AFD2E00796AA2 /* CourtDetailsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourtDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +85,9 @@
 		0E8993151A887A2800B1C9C3 /* blacktop */ = {
 			isa = PBXGroup;
 			children = (
-				0E89933A1A88877800B1C9C3 /* MainTableViewController.swift */,
-				0E89936C1A8890DB00B1C9C3 /* BasketballCourtItem.swift */,
+				0ED29F041A9A5E6E00796AA2 /* Controllers */,
+				0ED29F021A9A5E3200796AA2 /* Models */,
 				0E8993181A887A2800B1C9C3 /* AppDelegate.swift */,
-				0E89936E1A93134800B1C9C3 /* CourtsTableViewCell.swift */,
 				0E89931C1A887A2800B1C9C3 /* Main.storyboard */,
 				0E89931F1A887A2800B1C9C3 /* Images.xcassets */,
 				0E8993211A887A2800B1C9C3 /* LaunchScreen.xib */,
@@ -116,6 +119,33 @@
 				0E89932D1A887A2800B1C9C3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0ED29F021A9A5E3200796AA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0E89936C1A8890DB00B1C9C3 /* BasketballCourtItem.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		0ED29F041A9A5E6E00796AA2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0ED29F051A9A623600796AA2 /* Prototypes */,
+				0E89933A1A88877800B1C9C3 /* MainTableViewController.swift */,
+				0ED29F061A9AEF2D00796AA2 /* CourtDetailsViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0ED29F051A9A623600796AA2 /* Prototypes */ = {
+			isa = PBXGroup;
+			children = (
+				0E89936E1A93134800B1C9C3 /* CourtsTableViewCell.swift */,
+				0ED29F081A9AFD2E00796AA2 /* CourtDetailsTableViewCell.swift */,
+			);
+			name = Prototypes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +251,8 @@
 				0E8993191A887A2800B1C9C3 /* AppDelegate.swift in Sources */,
 				0E89936D1A8890DB00B1C9C3 /* BasketballCourtItem.swift in Sources */,
 				0E89933B1A88877800B1C9C3 /* MainTableViewController.swift in Sources */,
+				0ED29F071A9AEF2D00796AA2 /* CourtDetailsViewController.swift in Sources */,
+				0ED29F091A9AFD2E00796AA2 /* CourtDetailsTableViewCell.swift in Sources */,
 				0E89936F1A93134800B1C9C3 /* CourtsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
