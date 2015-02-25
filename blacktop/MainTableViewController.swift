@@ -77,13 +77,21 @@ class MainTableViewController: UITableViewController {
         // self.presentViewController(optionMenu, animated: true, completion: nil);
     }
 
-    /*
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]? {
+        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title:
+            "Share", handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+        })
+        
+        shareAction.backgroundColor = UIColor(red: 255.0/255.0, green: 166.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        
+        return [shareAction]
+    }
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
 
     /*
     // Override to support editing the table view.
